@@ -7,23 +7,26 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-const Login = () => {
+
+const Login = (props) => {
+  // console.log(props);
+
   const navigate = useNavigate();
   //TODO: update handleSubmitClick method
   const handleClick = async (e) => {
     e.preventDefault();
-    await fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-    console.log("validate doc");
-    console.log("validate cel");
-    console.log("validate placa");
-    navigate("/armatuplan");
+    try {
+      await props.fetchUser(
+        //TODO: update data source
+        { type: "dni", number: "12345678" },
+        123123123,
+        "111-AAA"
+      );
+      navigate("/armatuplan");
+    } catch (e) {
+      console.log(e);
+    }
   };
-
-  useEffect(() => {});
-
   return (
     <div className="container-fluid vh-100">
       <div className="row h-100">
@@ -43,7 +46,7 @@ const Login = () => {
             <div className="col-8 col-md-12 p-0">
               <p className="text-uppercase ms-3">¡Nuevo!</p>
               <h1 className="ms-3">
-                Seguro{" "}
+                Seguro
                 <span style={{ color: "#d90048" }}>Vehicular Tracking</span>
               </h1>
               <p className="ms-3">
@@ -78,7 +81,10 @@ const Login = () => {
               <Form.Control type="email" placeholder="Nro. de doc" />
             </Form.Group> */}
                 <Form.Group className="mb-3" controlId="for">
-                  <Form.Control type="email" placeholder="Celular*" />
+                  <Form.Control type="phone" placeholder="Celular*" />
+                  <Form.Control.Feedback type="invalid">
+                    Ingrese un número de celular correcto.
+                  </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Control type="password" placeholder="Placa*" />

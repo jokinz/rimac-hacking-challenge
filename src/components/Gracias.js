@@ -2,8 +2,14 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { ReactComponent as GraciasSvg } from "../images/gracias.svg";
 import { ReactComponent as GraciasMobileSvg } from "../images/gracias_mobile.svg";
+import { useContext } from "react";
+import { UserContext } from "./App";
+import { useLocation } from "react-router";
 
-export default function Gracias() {
+export default function Gracias(props) {
+  console.log("Monto final:", useLocation().state.montoFinal);
+  const email = useContext(UserContext).email;
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -21,7 +27,7 @@ export default function Gracias() {
               }}
             >
               ¡Te damos la bienvenida!
-            </span>{" "}
+            </span>
             <br />
             Cuenta con nosotros para proteger tu vehículo
           </h1>
@@ -29,7 +35,7 @@ export default function Gracias() {
             Enviaremos la confirmación de compra de tu Plan Vehícular Tracking a
             tu correo:
             <br />
-            <strong>joel.sanchez@gmail.com</strong>
+            <strong>{email}</strong>
           </p>
           <Button size="lg" className="text-uppercase">
             Como usar mi seguro

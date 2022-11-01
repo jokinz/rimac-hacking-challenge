@@ -5,19 +5,20 @@ import { Check } from "react-bootstrap-icons";
 import { useNavigate } from "react-router";
 
 export default function Resumen(props) {
+  // console.log("resumen props:", props);
   const navigate = useNavigate();
 
-  const monto = props.monto.toFixed(2);
+  const total = props.total;
   //TODO: update handleClick methods
   const handleClick = (e) => {
     e.preventDefault();
-    navigate("/gracias");
+    navigate("/gracias", { state: { montoFinal: total } });
   };
 
   return (
     <>
       <p>Monto</p>
-      <h5>{`$${monto}`}</h5>
+      <h5>{`$${total}`}</h5>
       <p>mensuales</p>
       <hr />
       <p>El precio incluye:</p>

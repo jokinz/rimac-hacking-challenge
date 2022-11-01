@@ -1,23 +1,37 @@
 import Accordion from "react-bootstrap/Accordion";
 import Button from "react-bootstrap/Button";
-
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { ReactComponent as IconTheftSvg } from "../images/icon_theft.svg";
 import { ReactComponent as IconDamagetSvg } from "../images/icon_damage.svg";
 import { ReactComponent as IconPerdidaTotalSvg } from "../images/icon_perdidatotal.svg";
-import Trigger from "./Trigger";
 
-const SumaCalculadora = (props) => {
-  console.log(props.baseValue);
-  const value = props.baseValue;
+const SumCalculator = (props) => {
+  // console.log("calcul props:", props);
+  let baseValue = props.planDetails.montoBase;
   const handleMinusClick = (e) => {
     e.preventDefault();
-    console.log("Minus click");
+    if (baseValue > props.planDetails.minimo)
+      props.onChangeMontoBase(baseValue - 100);
+    // console.log(baseValue);
   };
   const handlePlusClick = (e) => {
     e.preventDefault();
-    console.log("Plus click");
+    if (baseValue < props.planDetails.maximo)
+      props.onChangeMontoBase(baseValue + 100);
+    // console.log(baseValue);
+  };
+  const handleLlantaRobadaClick = (e) => {
+    e.preventDefault();
+    props.onChangeLlantaRobada();
+  };
+  const handleChoqueClick = (e) => {
+    e.preventDefault();
+    props.onChangeChoque();
+  };
+  const handleAtropelloClick = (e) => {
+    e.preventDefault();
+    props.onChangeAtropello();
   };
   return (
     <>
@@ -27,27 +41,27 @@ const SumaCalculadora = (props) => {
           <div className="d-flex flex-row justify-content-start justify-content-mb-between">
             <div>
               <p
-                className="text-start mb-0 mx-1"
+                className="text-start mb-0 me-1"
                 style={{
                   color: "#676F8F",
                   fontSize: "12px",
                   lineHeight: "16px",
                 }}
               >
-                MIN $12,500
+                MIN ${props.planDetails.minimo}
               </p>
             </div>
             <div className="vr"></div>
             <div>
               <p
-                className="text-start mb-0 mx-1"
+                className="text-start mb-0 ms-1"
                 style={{
                   color: "#676F8F",
                   fontSize: "12px",
                   lineHeight: "16px",
                 }}
               >
-                MAX $16,500
+                MAX ${props.planDetails.maximo}
               </p>
             </div>
           </div>
@@ -64,7 +78,7 @@ const SumaCalculadora = (props) => {
             </Button>
             <Form.Control
               className="text-center border-0"
-              value={`$${value}`}
+              value={`$${baseValue}`}
               disabled={true}
               aria-label="Example text with button addon"
               aria-describedby="basic-addon1"
@@ -82,23 +96,14 @@ const SumaCalculadora = (props) => {
       </div>
       <hr className=".ms-1 " />
       <p>Agrega o quita coberturas</p>
-      {/* <Tabs
-            defaultActiveKey="home"
-            transition={false}
-            id="noanim-tab-example"
-            className="mb-3"
-          >
-            <Tab
-              eventKey="protege-a-tu-auto"
-              title="Protege a 
-            tu auto"
-            > */}
       <Accordion>
         <div className="row">
           <IconTheftSvg className="col-2" />
           <Accordion.Item eventKey="0" className="col-10 border-0 p-0">
             <Accordion.Header>Llanta robada</Accordion.Header>
-            <Trigger status={true} />
+            <Button onClick={handleLlantaRobadaClick}>
+              {props.planDetails.llantaRobada ? "- Quitar" : "+ Agregar"}
+            </Button>
             <Accordion.Body>
               He salido de casa a las cuatro menos cinco para ir a la academia
               de ingles de mi pueblo (Sant Cugat, al lado de Barcelona) con mi
@@ -112,17 +117,22 @@ const SumaCalculadora = (props) => {
           <IconDamagetSvg className="col-2" />
           <Accordion.Item eventKey="1" className="col-10 border-0 p-0">
             <Accordion.Header>Choque y/o pasarte la luz roja</Accordion.Header>
-            <Trigger status={false} />
-            <Accordion.Body>
-              Choque y/o pasarte la luz roja desc{" "}
-            </Accordion.Body>
+            <Button
+              disabled={props.planDetails.choqueEnabled ? false : true}
+              onClick={handleChoqueClick}
+            >
+              {props.planDetails.choque ? "- Quitar" : "+ Agregar"}
+            </Button>
+            <Accordion.Body>Choque y/o pasarte la luz roja desc</Accordion.Body>
           </Accordion.Item>
         </div>
         <div className="row">
           <IconPerdidaTotalSvg className="col-2" />
           <Accordion.Item eventKey="2" className="col-10 border-0 p-0">
             <Accordion.Header>Atropello en la vía Evitamiento</Accordion.Header>
-            <Trigger status={true} />
+            <Button onClick={handleAtropelloClick}>
+              {props.planDetails.atropello ? "- Quitar" : "+ Agregar"}
+            </Button>
             <Accordion.Body>
               Atropello en la vía Evitamiento desc
             </Accordion.Body>
@@ -144,4 +154,4 @@ const SumaCalculadora = (props) => {
   );
 };
 
-export default SumaCalculadora;
+export default SumCalculator;
