@@ -15,11 +15,6 @@ function App() {
   const [user, setUser] = useState({});
   const fetchUser = async (document, celular, placa) => {
     try {
-      //TODO: validate inputs
-      console.log("validate doc");
-      console.log("validate cel");
-      console.log("validate placa");
-      //
       await fetch(userDataSource)
         .then((response) => response.json())
         .then((data) =>
@@ -30,8 +25,7 @@ function App() {
             placa: placa,
           })
         );
-
-      console.log("app user", user);
+      // .then(() => console.log("app user", user));
     } catch (e) {
       console.log(e);
     }

@@ -61,7 +61,7 @@ function Armatuplan() {
   // TODO: update data source
   const placa = user.placa;
   return (
-    <div style={{ backgroundColor: "#F7F8FC" }}>
+    <div className="arma-tu-plan">
       <div className="row fluid m-0">
         <div className="d-lg-none px-5">
           <span>PASO 2 DE 2</span>
@@ -71,10 +71,7 @@ function Armatuplan() {
           <p>Datos</p>
           <p>Arma tu plan</p>
         </div>
-        <div
-          className="col-12 col-sm-7 col-lg-5 col-xl-4 p-5 px-sm-4"
-          style={{ backgroundColor: "#fff" }}
-        >
+        <div className="col-12 col-sm-7 col-lg-5 col-xl-4 p-5 px-sm-4">
           <Button className="text-uppercase">Volver</Button>
           <h3 className="my-2">
             ¡Hola <span className="text-primary">{user.name}!</span>
@@ -89,10 +86,7 @@ function Armatuplan() {
             onChangeAtropello={onChangeAtropello}
           />
         </div>
-        <div
-          className="col-12 col-sm-5 col-lg-5 col-xl-4 p-5 px-sm-4 flex-column"
-          style={{ backgroundColor: "#fff" }}
-        >
+        <div className="col-12 col-sm-5 col-lg-5 col-xl-4 p-5 px-sm-4 bg-white flex-column">
           {/* TODO: update monto value */}
           <Resumen planDetails={planDetails} total={total} />
         </div>

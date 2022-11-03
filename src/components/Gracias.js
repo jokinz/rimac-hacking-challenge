@@ -13,21 +13,15 @@ export default function Gracias(props) {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-6">
-          <GraciasSvg className="m-auto d-none d-lg-block" />
+        <div className="col-12 col-md-6 d-none d-md-block p-0">
+          <GraciasSvg className="m-auto " />
         </div>
-        <div className="d-lg-none p-0">
+        <div className="d-md-none p-0">
           <GraciasMobileSvg className="w-100" />
         </div>
-        <div className="col-lg-5 col-md-12">
+        <div className="col-md-5 col-10 m-auto">
           <h1>
-            <span
-              style={{
-                color: "#d90048",
-              }}
-            >
-              ¡Te damos la bienvenida!
-            </span>
+            <span className="text-primary">¡Te damos la bienvenida!</span>
             <br />
             Cuenta con nosotros para proteger tu vehículo
           </h1>

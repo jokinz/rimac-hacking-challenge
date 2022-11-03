@@ -1,6 +1,10 @@
 // change the theme
+$custom-primary-color: #d90048;
+$custom-secondary-color: #494f66;
+$custom-third-color: pink;
 $theme-colors: (
-  "primary": #d90048,
+  "primary": $custom-primary-color,
+  "secondary": $custom-secondary-color,
 );
 
 //font-family
@@ -10,9 +14,34 @@ h3,
 h4,
 h5,
 h6,
-p {
+input,
+button {
   font-family: "Lato", sans-serif !important;
 }
-
+p,
+span {
+  font-family: "Roboto", sans-serif !important;
+}
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
+
+//custom styles
+.login-background {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+div.arma-tu-plan {
+  background-color: #f7f8fc;
+}
+
+.auto-info-img {
+  margin-top: -0.75rem;
+}
+
+.calcultor-limits-text {
+  color: #676f8f;
+  font-size: 12px;
+  line-height: 1.5;
+}
