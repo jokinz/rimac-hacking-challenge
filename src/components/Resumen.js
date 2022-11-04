@@ -5,11 +5,9 @@ import { Check } from "react-bootstrap-icons";
 import { useNavigate } from "react-router";
 
 export default function Resumen(props) {
-  // console.log("resumen props:", props);
   const navigate = useNavigate();
 
   const total = props.total;
-  //TODO: update handleClick methods
   const handleClick = (e) => {
     e.preventDefault();
     navigate("/gracias", { state: { montoFinal: total } });

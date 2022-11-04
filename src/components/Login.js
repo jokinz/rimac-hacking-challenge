@@ -13,22 +13,15 @@ import {
   validateDocumentFormat,
   validateCelularFormat,
   validatePlacaFormat,
+  validatePolitica,
 } from "../Utils";
 import InputValidation from "./InputValidation";
 
 const Login = (props) => {
-  // console.log(props);
-  //TODO: quitar values para testing
-  const [documentType, setDocumentType] = useState("dni");
-  const [document, setDocument] = useState("12121211");
-  const [celular, setCelular] = useState("999888771");
-  const [placa, setPlaca] = useState("111-AA1");
-
-  //TODO: reactivar empty values
-  // const [documentType, setDocumentType] = useState("document");
-  // const [document, setDocument] = useState("");
-  // const [celular, setCelular] = useState("");
-  // const [placa, setPlaca] = useState("");
+  const [documentType, setDocumentType] = useState("document");
+  const [document, setDocument] = useState("");
+  const [celular, setCelular] = useState("");
+  const [placa, setPlaca] = useState("");
   const [politica, setPolitica] = useState(false);
   const [validDocument, setValidDocument] = useState(null);
   const [validCelular, setValidCelular] = useState(null);
@@ -60,7 +53,7 @@ const Login = (props) => {
     setValidPlaca(null);
   };
 
-  const handlePoliticaCheckChange = () => {
+  const handlePoliticaCheckChange = (e) => {
     setPolitica(!politica);
     setValidPolitica(!politica);
   };
@@ -70,6 +63,7 @@ const Login = (props) => {
     setValidDocument(validateDocumentFormat(document, documentType));
     setValidCelular(validateCelularFormat(celular));
     setValidPlaca(validatePlacaFormat(placa));
+    setValidPolitica(validatePolitica(politica));
     if (validDocument && validCelular && validPlaca && validPolitica) {
       e.preventDefault();
       try {
@@ -91,7 +85,7 @@ const Login = (props) => {
           style={{
             backgroundImage: `url(${background})`,
           }}
-          className="col-12 col-xl-5 d-flex justify-content-center flex-column p-0 login-background"
+          className="col-12 col-xl-5 d-flex justify-content-center flex-column p-0 login__promotional__background"
         >
           <div
             className="row h-100 col-11 col-md-6 col-lg-5 col-xl-8
@@ -125,6 +119,7 @@ const Login = (props) => {
                 <Form.Group>
                   <InputGroup className="mb-3">
                     <select
+                      className="login__document-type__select"
                       value={documentType}
                       onChange={handleDocumentTypeChange}
                       variant="outline-secondary"
@@ -146,7 +141,9 @@ const Login = (props) => {
                     />
                   </InputGroup>
                   <InputValidation
-                    validationSource={validDocument}
+                    validationSource={
+                      validDocument && documentType !== "document"
+                    }
                     warningMessage={"Completa correctamente este campo"}
                   />
                 </Form.Group>
@@ -203,8 +200,8 @@ const Login = (props) => {
                     }
                   />
                   <InputValidation
-                    validationSource={validPolitica}
-                    warningMessage={"Por favor marca este campo"}
+                    validationSource={validPolitica && validPolitica !== null}
+                    warningMessage={"Por favor activa este campo"}
                   />
                 </Form.Group>
                 <Button

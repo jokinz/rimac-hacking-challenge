@@ -3,7 +3,7 @@ import "../App.scss";
 import "../custom.scss";
 import Armatuplan from "./Armatuplan";
 import Login from "./Login";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Container } from "react-bootstrap";
 import { ReactComponent as LogoRimacSvg } from "../images/logo_rimac.svg";
 import Gracias from "./Gracias";
 import { createContext, useState } from "react";
@@ -25,22 +25,31 @@ function App() {
             placa: placa,
           })
         );
-      // .then(() => console.log("app user", user));
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
     <div className="App h-100">
       <UserContext.Provider value={user}>
-        <Navbar bg="light" variant="light">
+        <Navbar bg="light" variant="light" sticky="top">
           <Container>
             <Navbar.Brand href="#home">
               <LogoRimacSvg />
             </Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-            </Nav>
+            <Navbar.Collapse className="justify-content-end">
+              <Navbar.Text className="d-none d-md-flex">
+                ¿Tienes alguna duda?{" "}
+                <a className=" ms-3 d-none d-md-block" href="tel:014116001">
+                  (01) 411 6001
+                </a>
+              </Navbar.Text>
+              <Navbar.Text className="d-md-none">
+                <a className="d-md-none" href="tel:014116001">
+                  Llámanos
+                </a>
+              </Navbar.Text>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
         <Router>

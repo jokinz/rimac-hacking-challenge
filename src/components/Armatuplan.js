@@ -9,7 +9,6 @@ import { calcTotalPlan } from "../Utils";
 
 function Armatuplan() {
   const user = useContext(UserContext);
-  // console.log("arma context", UserContext);
 
   const [planDetails, setPlanDetails] = useState({
     minimo: 12500,
@@ -57,11 +56,9 @@ function Armatuplan() {
       return { ...prevPlanDetails, atropello: newValue };
     });
   };
-  // console.log("total", total);
-  // TODO: update data source
   const placa = user.placa;
   return (
-    <div className="arma-tu-plan">
+    <div className="arma-tu-plan__container__background">
       <div className="row fluid m-0">
         <div className="d-lg-none px-5">
           <span>PASO 2 DE 2</span>
@@ -87,7 +84,6 @@ function Armatuplan() {
           />
         </div>
         <div className="col-12 col-sm-5 col-lg-5 col-xl-4 p-5 px-sm-4 bg-white flex-column">
-          {/* TODO: update monto value */}
           <Resumen planDetails={planDetails} total={total} />
         </div>
       </div>

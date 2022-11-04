@@ -11,7 +11,7 @@ const AutoInfo = (props) => {
             <Card.Text>Wolkswagen 2020</Card.Text>
           </div>
           <div className="col-6 col-md-5 d-flex justify-content-end">
-            <CoberturaSvg className="auto-info-img" />
+            <CoberturaSvg className="auto-info__img__margin" />
           </div>
         </div>
       </Card.Body>

@@ -86,13 +86,8 @@ export const validatePlacaFormat = (value) => {
     return false;
   }
 };
-// export const validateForm = (
-//   document,
-//   documentType,
-//   celular,
-//   placa,
-//   politica
-// ) => {
-//   let validForm = true;
-//   return validForm;
-// };
+export const validatePolitica = (politica) => {
+  if (politica === true) return true;
+  if (politica === false) return false;
+  if (politica === null) return false;
+};

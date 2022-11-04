@@ -26,21 +26,28 @@ span {
 @import "~bootstrap/scss/bootstrap.scss";
 
 //custom styles
-.login-background {
+.login__promotional__background {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-div.arma-tu-plan {
+.login__document-type__select {
+  border: 1px solid #ced4da;
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  padding: 0.5rem;
+}
+
+.arma-tu-plan__container__background {
   background-color: #f7f8fc;
 }
 
-.auto-info-img {
+.auto-info__img__margin {
   margin-top: -0.75rem;
 }
 
-.calcultor-limits-text {
+.calculator__limits__text-styles {
   color: #676f8f;
   font-size: 12px;
   line-height: 1.5;

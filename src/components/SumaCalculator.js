@@ -7,19 +7,16 @@ import { ReactComponent as IconDamagetSvg } from "../images/icon_damage.svg";
 import { ReactComponent as IconPerdidaTotalSvg } from "../images/icon_perdidatotal.svg";
 
 const SumCalculator = (props) => {
-  // console.log("calcul props:", props);
   let baseValue = props.planDetails.montoBase;
   const handleMinusClick = (e) => {
     e.preventDefault();
     if (baseValue > props.planDetails.minimo)
       props.onChangeMontoBase(baseValue - 100);
-    // console.log(baseValue);
   };
   const handlePlusClick = (e) => {
     e.preventDefault();
     if (baseValue < props.planDetails.maximo)
       props.onChangeMontoBase(baseValue + 100);
-    // console.log(baseValue);
   };
   const handleLlantaRobadaClick = (e) => {
     e.preventDefault();
@@ -49,13 +46,13 @@ const SumCalculator = (props) => {
           <span>Indica la suma asegurada</span>
           <div className="d-flex flex-row justify-content-start justify-content-mb-between">
             <div>
-              <p className="text-start mb-0 me-1 calcultor-limits-text">
+              <p className="text-start mb-0 me-1 calculator__limits__text-styles">
                 MIN ${props.planDetails.minimo}
               </p>
             </div>
             <div className="vr"></div>
             <div>
-              <p className="text-start mb-0 ms-1 calcultor-limits-text">
+              <p className="text-start mb-0 ms-1 calculator__limits__text-styles">
                 MAX ${props.planDetails.maximo}
               </p>
             </div>
