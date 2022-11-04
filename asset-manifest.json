@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/hacking-challenge/static/css/main.0cafcfed.css",
+    "main.js": "/hacking-challenge/static/js/main.f759bad2.js",
+    "static/media/seguro_vehicular.svg": "/hacking-challenge/static/media/seguro_vehicular.e11003ed5b72a517720d0abc14776807.svg",
+    "static/media/seguro_vehicular_mobile.svg": "/hacking-challenge/static/media/seguro_vehicular_mobile.3ff2074b163fec95a1e5b08bb5e7afbe.svg",
+    "static/media/gracias.svg": "/hacking-challenge/static/media/gracias.2938a2dacced6e902943d6d2fd57a65f.svg",
+    "static/media/gracias_mobile.svg": "/hacking-challenge/static/media/gracias_mobile.ecc29e5483cd85c47553d6c937e610b8.svg",
+    "static/media/cobertura.svg": "/hacking-challenge/static/media/cobertura.81fbe4171c426f275aaa0280265e6969.svg",
+    "static/media/background.png": "/hacking-challenge/static/media/background.4cd850c3285ce8452f2b.png",
+    "static/media/icon_perdidatotal.svg": "/hacking-challenge/static/media/icon_perdidatotal.eaaec3a0df03b69c4e742149556e33a4.svg",
+    "static/media/icon_damage.svg": "/hacking-challenge/static/media/icon_damage.2317e0ecef89dc4a78c9fd242a469020.svg",
+    "static/media/icon_theft.svg": "/hacking-challenge/static/media/icon_theft.9569db345c4919216992b9ba252afdc2.svg",
+    "static/media/logo_rimac.svg": "/hacking-challenge/static/media/logo_rimac.f6ad5234b434b6241bd1772c580112a0.svg",
+    "index.html": "/hacking-challenge/index.html",
+    "main.0cafcfed.css.map": "/hacking-challenge/static/css/main.0cafcfed.css.map",
+    "main.f759bad2.js.map": "/hacking-challenge/static/js/main.f759bad2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cafcfed.css",
+    "static/js/main.f759bad2.js"
+  ]
+}
