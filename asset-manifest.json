@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rimac-hacking-challenge/static/css/main.0cafcfed.css",
-    "main.js": "/rimac-hacking-challenge/static/js/main.e27c5ac7.js",
+    "main.js": "/rimac-hacking-challenge/static/js/main.f5c892be.js",
     "static/media/seguro_vehicular.svg": "/rimac-hacking-challenge/static/media/seguro_vehicular.e11003ed5b72a517720d0abc14776807.svg",
     "static/media/seguro_vehicular_mobile.svg": "/rimac-hacking-challenge/static/media/seguro_vehicular_mobile.3ff2074b163fec95a1e5b08bb5e7afbe.svg",
     "static/media/gracias.svg": "/rimac-hacking-challenge/static/media/gracias.2938a2dacced6e902943d6d2fd57a65f.svg",
@@ -14,10 +14,10 @@
     "static/media/logo_rimac.svg": "/rimac-hacking-challenge/static/media/logo_rimac.f6ad5234b434b6241bd1772c580112a0.svg",
     "index.html": "/rimac-hacking-challenge/index.html",
     "main.0cafcfed.css.map": "/rimac-hacking-challenge/static/css/main.0cafcfed.css.map",
-    "main.e27c5ac7.js.map": "/rimac-hacking-challenge/static/js/main.e27c5ac7.js.map"
+    "main.f5c892be.js.map": "/rimac-hacking-challenge/static/js/main.f5c892be.js.map"
   },
   "entrypoints": [
     "static/css/main.0cafcfed.css",
-    "static/js/main.e27c5ac7.js"
+    "static/js/main.f5c892be.js"
   ]
 }
