@@ -54,17 +54,20 @@ const Login = (props) => {
   };
 
   const handlePoliticaCheckChange = (e) => {
-    setPolitica(!politica);
-    setValidPolitica(!politica);
+    setPolitica((prevPolitica) => {
+      setValidPolitica(!prevPolitica);
+      return !prevPolitica;
+    });
   };
 
   const navigate = useNavigate();
   const handleSubmitClick = async (e) => {
-    setValidDocument(validateDocumentFormat(document, documentType));
-    setValidCelular(validateCelularFormat(celular));
-    setValidPlaca(validatePlacaFormat(placa));
-    setValidPolitica(validatePolitica(politica));
-    if (validDocument && validCelular && validPlaca && validPolitica) {
+    if (
+      validateDocumentFormat(document, documentType) &&
+      validateCelularFormat(celular) &&
+      validatePlacaFormat(placa) &&
+      validatePolitica(politica)
+    ) {
       e.preventDefault();
       try {
         await props.fetchUser(
@@ -76,6 +79,11 @@ const Login = (props) => {
       } catch (error) {
         console.log(error);
       }
+    } else {
+      setValidDocument(validateDocumentFormat(document, documentType));
+      setValidCelular(validateCelularFormat(celular));
+      setValidPlaca(validatePlacaFormat(placa));
+      setValidPolitica(validatePolitica(politica));
     }
   };
   return (
